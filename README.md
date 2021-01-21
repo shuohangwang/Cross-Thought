@@ -11,6 +11,7 @@ Overall, we only change one file 'transformer_sentence_encoder.py' from RoBERTa 
 
 ## Finetune
 Please follow RoBERTa finetune (https://github.com/pytorch/fairseq/blob/master/examples/roberta/README.glue.md) for data process
+
 Cross-Thought checkpoint (https://drive.google.com/file/d/11lnZijWuRcPT07xiEO5NMhkXMfKopIb9/view?usp=sharing)
 ```
 export CTPRETRAIN=False
@@ -45,7 +46,7 @@ CUDA_VISIBLE_DEVICES=0 fairseq-train data/QQP-bin/ \
 
 ## Pre-train
 Please follow RoBERTa pre-train (https://github.com/pytorch/fairseq/blob/master/examples/roberta/README.pretraining.md) for data process
-'''
+```
 export CTPRETRAIN=True
 fairseq-train --fp16 $DATA_DIR --task masked_lm --criterion masked_lm     \
 --arch roberta_base --sample-break-mode none --tokens-per-sample 32000 \
@@ -54,7 +55,7 @@ fairseq-train --fp16 $DATA_DIR --task masked_lm --criterion masked_lm     \
 --total-num-update 125000 --dropout 0.1 --attention-dropout 0.1 --weight-decay 0.01    \
 --batch-size 1 --update-freq 16 --max-update 500000 --log-format simple --log-interval 1 \
 --save-dir outputs/crossthought --save-interval-updates 5000
-'''
+```
 
 ## Contributing
 
